@@ -1,0 +1,64 @@
+/* Reset padrão de margens e preenchimento */
+body, h1, h2, p, input, select{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Centralize o conteúdo na página */
+h1 {
+    margin-bottom: 30px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 40px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: white;
+}
+
+/* Estilo do formulário */
+form {
+    background-color: white;
+    border: 1px solid orange;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Alinhe a descrição do campo e os campos de digitação centralizados e um abaixo do outro */
+label, input {
+    display: block; 
+    margin: 10px auto;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+}
+
+/* Espaço ainda maior entre o último campo e o botão */
+input:last-child {
+    margin-bottom: 20px;
+}
+
+/* Estilo para botões */
+button {
+    background-color: orange;
+    display: block;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 20px 30px;
+    cursor: pointer;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 15px;
+    margin: 30px auto;
+ 
+}
+
+
+button:hover {
+    background-color: darkorange;
+}
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="../public/css/styles.css">
+
+
+</head>
+<body>
+    <h1>Dashboard</h1>
+    
+    <form id="dashboard-form">
+    <label for="data-inicial">Data Inicial:</label>
+    <input type="date" id="data-inicial" name="data-inicial">
+
+    <label for="data-final">Data Final:</label>
+    <input type="date" id="data-final" name="data-final">
+
+    <label for="placa">Placa do Veículo:</label>
+    <input type="text" id="placa" name="placa">
+
+    <label for="informacoes">Informações Desejadas:</label>
+    <select id="informacoes" name="informacoes">
+        <option value="litros">Total de Litros Abastecidos</option>
+        <option value="reais">Total de Reais Gastos em Combustível</option>
+        <option value="media">Média de Consumo de Combustível por Litro</option>
+    </select>
+
+    <button type="submit">Gerar Relatório</button>
+</form>
+
+
+    <script src="../public/js/script.js"></script>
+</body>
+</html>
