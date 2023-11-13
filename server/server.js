@@ -21,6 +21,7 @@ db.connect(err => {
   }
 });
 
+
 // Middleware para processar dados JSON
 app.use(express.json());
 
@@ -32,7 +33,7 @@ app.post('/abastecimento', (req, res) => {
 
   // Inserir dados no banco de dados MySQL
   db.query(
-    'INSERT INTO Abastecimento (PlacaVeiculo, QuantidadeLitros, Combustivel, DataAbastecimento, HorarioAbastecimento) VALUES (?, ?, ?, ?, ?)',
+    'INSERT INTO Abastecimento (PlacaVeiculo, QuantidadeLitros,hodometro, Combustivel, DataAbastecimento, HorarioAbastecimento) VALUES (?, ?, ?, ?, ?)',
     [placa, litros, combustivel, dataAbastecimento, horarioAbastecimento],
     (err, result) => {
       if (err) {
@@ -48,4 +49,45 @@ app.post('/abastecimento', (req, res) => {
 // Iniciar o servidor
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
+});
+
+//GET para página dashboard
+
+// Rota para obter informações com base nos filtros do dashboard
+app.get('/relatorio', (req, res) => {
+  const { dataInicial, dataFinal, placa, informacoes } = req.query;
+
+  // Construir a consulta SQL com base nos filtros fornecidos
+  let sqlQuery = 'SELECT ';
+
+  switch (informacoes) {
+    case 'litros':
+      sqlQuery += 'SUM(QuantidadeLitros) AS total FROM Abastecimento ';
+      break;
+    case 'reais':
+      sqlQuery += 'SUM(ValorTotal) AS total FROM Abastecimento ';
+      break;
+    case 'media':
+      sqlQuery += 'AVG(QuantidadeLitros) AS media FROM Abastecimento ';
+      break;
+    default:
+      res.status(400).json({ error: 'Informações inválidas fornecidas.' });
+      return;
+  }
+
+  sqlQuery += 'WHERE DataAbastecimento BETWEEN ? AND ? AND PlacaVeiculo = ?';
+
+  // Executar a consulta no banco de dados MySQL
+  db.query(
+    sqlQuery,
+    [dataInicial, dataFinal, placa],
+    (err, result) => {
+      if (err) {
+        console.error('Erro ao consultar dados no MySQL:', err);
+        res.status(500).json({ error: 'Erro ao obter informações.' });
+      } else {
+        res.status(200).json(result[0]);
+      }
+    }
+  );
 });

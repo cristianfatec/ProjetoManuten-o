@@ -22,6 +22,7 @@ function calcularValorTotal() {
 function registrarAbastecimento() {
     const placa = document.getElementById('placa').value;
     const litros = document.getElementById('litros').value;
+    const hodometro = document.getElementById('hodometro').value;
     const combustivel = document.getElementById('combustivel').value;
     const precoLitro = document.getElementById('preco-litro').value;
 
