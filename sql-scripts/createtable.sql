@@ -1,20 +1,16 @@
-USE master;
-GO
+-- create-table.sql
 
--- Criando um banco de dados chamado "AbastecimentoVeiculos"
-CREATE DATABASE AbastecimentoVeiculos;
-GO
+CREATE DATABASE IF NOT EXISTS Abastecimento;
 
 USE AbastecimentoVeiculos;
-GO
 
--- Crie uma tabela para armazenar os registros de abastecimento
-CREATE TABLE Abastecimento (
-    ID INT IDENTITY(1,1) PRIMARY KEY,
+CREATE TABLE IF NOT EXISTS Abastecimento (
+    ID INT AUTO_INCREMENT PRIMARY KEY,
     PlacaVeiculo VARCHAR(7) NOT NULL,
     QuantidadeLitros INT NOT NULL,
     Combustivel VARCHAR(50) NOT NULL,
+    PrecoLitro DECIMAL(10, 2) NOT NULL,
+    ValorTotal DECIMAL(10, 2) NOT NULL,
     DataAbastecimento DATE NOT NULL,
     HorarioAbastecimento TIME NOT NULL
 );
-GO

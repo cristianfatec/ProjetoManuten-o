@@ -5,7 +5,7 @@ body, h1, h2, p, input, select{
     padding: 0;
 }
 
-/* Centralize o conteúdo na página */
+
 h1 {
     margin-bottom: 30px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -20,7 +20,7 @@ body {
     background-color: white;
 }
 
-/* Estilo do formulário */
+
 form {
     background-color: white;
     border: 1px solid orange;
@@ -29,7 +29,6 @@ form {
     text-align: center;
 }
 
-/* Alinhe a descrição do campo e os campos de digitação centralizados e um abaixo do outro */
 label, input {
     display: block; 
     margin: 10px auto;
@@ -37,12 +36,11 @@ label, input {
     text-align: center;
 }
 
-/* Espaço ainda maior entre o último campo e o botão */
 input:last-child {
     margin-bottom: 20px;
 }
 
-/* Estilo para botões */
+
 button {
     background-color: orange;
     display: block;
